@@ -48,6 +48,24 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        'deep-black': '#0A0A0F',
+        'surface': '#13131F',
+        'surface-elevated': '#1C1C2E',
+        'electric-purple': '#A855F7',
+        'cyan-burst': '#06B6D4',
+        'neon-violet': '#7C3AED',
+        'silver': '#B4B4C7',
+        'muted-text': '#6B7280',
+        'purple-light': '#C4B5FD',
+        'success': '#10B981',
+        'warning': '#F59E0B',
+        'error': '#EF4444',
+        'info': '#3B82F6',
+      },
+      fontFamily: {
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -58,6 +76,9 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        'glow-purple': '0 0 30px rgba(168, 85, 247, 0.4)',
+        'glow-purple-sm': '0 0 15px rgba(168, 85, 247, 0.3)',
+        'card-hover': '0 8px 40px rgba(168, 85, 247, 0.1)',
       },
       keyframes: {
         "accordion-down": {
@@ -72,11 +93,31 @@ module.exports = {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
+        "pulse-arrow": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 40px rgba(168,85,247,0.15)" },
+          "50%": { boxShadow: "0 0 60px rgba(168,85,247,0.25)" },
+        },
+        "scroll-logos": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        "pulse-arrow": "pulse-arrow 2s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+        "scroll-logos": "scroll-logos 30s linear infinite",
+        "float": "float 6s ease-in-out infinite",
       },
     },
   },
