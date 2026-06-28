@@ -19,6 +19,7 @@ export default function Optimize() {
   const [displayed, setDisplayed] = useState("");
   const [copied, setCopied] = useState(false);
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
 
   const optimizeMutation = trpc.optimize.prompt.useMutation({
     onSuccess: (data) => {
@@ -31,9 +32,7 @@ export default function Optimize() {
   });
 
   const loading = optimizeMutation.isPending;
-  const [error, setError] = useState("");
 
-  // Typewriter effect
   useEffect(() => {
     if (!result) return;
     let i = 0;
@@ -227,7 +226,9 @@ export default function Optimize() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                   <span className="text-[#10B981] text-sm font-medium">Optimized</span>
-                  <span className="text-[#6B7280] text-xs ml-2">for {model.name}</span>
+                  <span className="text-[#6B7280] text-xs ml-2">
+                    for {model.name}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <motion.button
@@ -237,7 +238,9 @@ export default function Optimize() {
                     disabled={loading}
                     className="p-2 rounded-lg bg-[#13131F] border border-[rgba(168,85,247,0.15)] text-[#B4B4C7] hover:text-white transition-all disabled:opacity-40"
                   >
-                    <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+                    <RefreshCw
+                      className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
+                    />
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -257,7 +260,9 @@ export default function Optimize() {
                 {loading && !result ? (
                   <div className="flex flex-col items-center justify-center py-8 gap-3">
                     <Loader2 className="w-8 h-8 text-[#A855F7] animate-spin" />
-                    <span className="text-[#6B7280] text-sm">Analyzing and improving...</span>
+                    <span className="text-[#6B7280] text-sm">
+                      Analyzing and improving...
+                    </span>
                   </div>
                 ) : (
                   <div
