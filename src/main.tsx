@@ -1,8 +1,5 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { TRPCProvider } from './providers/trpc'
 
-createRoot(document.getElementById('root')!).render(
-  <TRPCProvider><App /></TRPCProvider>
-)
+createRoot(document.getElementById('root')!).render(<App />)
