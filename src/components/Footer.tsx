@@ -28,8 +28,8 @@ const companyLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-[rgba(168,85,247,0.08)] bg-[#0A0A0F]">
-      <div className="mx-auto max-w-[1280px] px-6 pt-16 lg:px-16">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-[1280px] px-4 pt-10 md:px-6 md:pt-16 lg:px-16">
+        <div className="grid grid-cols-2 gap-8 md:gap-12 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2">

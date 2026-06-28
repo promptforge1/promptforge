@@ -86,12 +86,12 @@ export default function Optimize() {
             <span className="text-[#C4B5FD] text-sm font-medium">AI-Powered Optimization</span>
           </div>
           <h1
-            className="text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 tracking-tight"
             style={{ fontFamily: "Space Grotesk,system-ui,sans-serif" }}
           >
             Optimize Your Prompt
           </h1>
-          <p className="text-[#B4B4C7] text-lg">
+          <p className="text-[#B4B4C7] text-base md:text-lg">
             Select a model, paste your prompt, let AI make it perfect.
           </p>
         </motion.div>
@@ -106,7 +106,7 @@ export default function Optimize() {
           <label className="block text-[#B4B4C7] text-sm font-medium mb-3">
             Target Model
           </label>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-2">
             {MODELS.map((m) => (
               <button
                 key={m.id}
@@ -140,7 +140,7 @@ export default function Optimize() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             placeholder={`Enter your ${model.name} prompt...`}
-            className="w-full h-48 bg-transparent text-white placeholder-[#6B7280] p-5 resize-none focus:outline-none text-[15px] leading-relaxed"
+            className="w-full h-40 md:h-48 bg-transparent text-white placeholder-[#6B7280] p-4 md:p-5 resize-none focus:outline-none text-[15px] leading-relaxed"
             style={{ fontFamily: "JetBrains Mono,monospace" }}
             spellCheck={false}
           />
@@ -180,7 +180,7 @@ export default function Optimize() {
             whileTap={{ scale: 0.98 }}
             onClick={optimize}
             disabled={loading || !prompt.trim()}
-            className="w-full py-4 rounded-2xl font-semibold text-white text-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full min-h-14 py-4 rounded-2xl font-semibold text-white text-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             style={{
               background: "linear-gradient(135deg,#A855F7 0%,#7C3AED 40%,#06B6D4 100%)",
             }}
@@ -222,7 +222,7 @@ export default function Optimize() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="bg-[rgba(19,19,31,0.7)] backdrop-blur-xl border border-[rgba(6,182,212,0.2)] rounded-2xl overflow-hidden"
             >
-              <div className="flex items-center justify-between px-6 py-4 border-b border-[rgba(6,182,212,0.1)]">
+              <div className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-[rgba(6,182,212,0.1)]">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                   <span className="text-[#10B981] text-sm font-medium">Optimized</span>
@@ -256,7 +256,7 @@ export default function Optimize() {
                   </motion.button>
                 </div>
               </div>
-              <div className="p-6 min-h-[120px]">
+              <div className="p-4 md:p-6 min-h-[120px]">
                 {loading && !result ? (
                   <div className="flex flex-col items-center justify-center py-8 gap-3">
                     <Loader2 className="w-8 h-8 text-[#A855F7] animate-spin" />
@@ -277,7 +277,7 @@ export default function Optimize() {
                 )}
               </div>
               {result && (
-                <div className="px-6 py-3 border-t border-[rgba(6,182,212,0.1)] flex items-center justify-between">
+                <div className="px-4 md:px-6 py-3 border-t border-[rgba(6,182,212,0.1)] flex items-center justify-between">
                   <span className="text-[#6B7280] text-xs">{result.length} chars</span>
                   <span className="text-[#10B981] text-xs">
                     +{Math.max(0, result.length - prompt.length)} added
@@ -293,7 +293,7 @@ export default function Optimize() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-10 text-center text-[#6B7280] text-sm"
+            className="mt-10 text-center text-[#6B7280] text-xs md:text-sm"
           >
             Tip: The more specific your prompt, the better the optimization.
           </motion.p>
